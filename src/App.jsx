@@ -5,8 +5,8 @@ import Footer from "./components/General/Footer";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
 import Modal from "./components/Modal";
-import Promo from "./components/Promo";
-
+import BlockHeader from "./components/Advertisement/BlockHeader"
+import Promo from "./components/Advertisement/Promo";
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem("user12"));
@@ -58,10 +58,10 @@ function App() {
   setModalOpen={setModalOpen}
   />
   <Routes>
-          {/* <Route path="/" element={<Home user={user} setActive={setModalOpen}/>}/> */}
-          <Route path="/catalog" element={<Catalog goods={goods}/>}/>
+          <Route path="/" element={<Home user={user} setActive={setModalOpen} goods={goods}/>}/>
+          <Route path="/catalog" element={<Catalog goods={goods} user={user} setActive={setModalOpen}/>}/>
+          <Route path="/catalog" element={<BlockHeader user={user} setActive={setModalOpen}/>}/>
           {/* <Route path="/catalog" element={<Promo goods={goods}/>}/> */}
-          <Route path="/" element={<Promo user={user} setActiveModal={setModalOpen}/>}/>
           {/* <Route path="/old" element={
             <OldPage
               searchText={searchResult}

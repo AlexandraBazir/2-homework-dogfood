@@ -4,7 +4,7 @@ import { Telegram, Whatsapp, Instagram } from "react-bootstrap-icons";
 import "./style.css";
 
 const links = [
-    {name: "Каталог", src: "/"},
+    {name: "Каталог", src: "/catalog"},
     {name: "Акции", src: "/"},
     {name: "Избранное", src: "/"},
     {name: "Корзина", src: "/"},

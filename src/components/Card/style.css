@@ -5,8 +5,8 @@
     border: 1px solid forestgreen;
     padding: 12px;
     border-radius: 8px;
-    grid-template-rows: 120px auto 1fr 30px;
-    align-content: flex-start;
+    grid-template-rows: 120px auto 1fr 39px;
+    align-content: center;
 }
 
 .card-lite h4 {
@@ -20,4 +20,18 @@
 .card-lite img {
     height: 100%;
     justify-self: center;
+}
+
+.card-lite button {
+    border-radius: 10px;
+    background-color: #ffe44d;
+    width: 100px;
+    height: 36px;
+    border: none;
+    /* padding: 10px; */
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }

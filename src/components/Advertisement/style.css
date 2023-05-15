@@ -1,0 +1,172 @@
+.block-header {
+    background-color: #ffe44d;
+    min-height: 300px;
+    max-height: 400px;
+    padding: 10px;
+    padding-left: 150px;
+}
+
+.block-header h1,
+.block-header p {
+    line-height: 120%;
+}
+
+.header-button {
+    border-radius: 10px;
+    background-color: white;
+    width: 100px;
+    border: none;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s;
+    margin-top: 10px;
+}
+
+.header-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.header-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    right: -15px;
+    transition: 0.5s;
+    top: 0;
+    line-height: 100%;
+}
+
+.header-button:hover span {
+    padding-right: 15px;
+}
+
+.header-button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.promo-block {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    margin-top: -30px;
+}
+
+.promo-text {
+    /* position: absolute; */
+    top: 350px;
+    background-color: #ff8f27;
+    background-image: url("../../image/promo-dog.png"), url("../../image/promo-gift.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    border-radius: 10px;
+    width: 800px;
+    height: 300px;
+    border: 15px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.promo-text h2,
+.promo-text p {
+    color: white;
+    padding-left: 50px;
+}
+
+.block-advertising {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.block-advertising-1 {
+    background-color: #d7a216;
+    border-radius: 10px;
+    border: 15px solid transparent;
+    background-image: url("../../image/pngegg.png"), url("../../image/круг.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.block-advertising-2 {
+    background-color: #25b5be;
+    border-radius: 10px;
+    border: 15px solid transparent;
+    background-image: url("../../image/pngegg1.png"), url("../../image/круг2.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.block-advertising-3 {
+    background-color: #9cce55;
+    border-radius: 10px;
+    border: 15px solid transparent;
+    background-image: url("../../image/dog-play.png"), url("../../image/circle-3.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.block-advertising-4 {
+    background-color: #db6825;
+    border-radius: 10px;
+    border: 15px solid transparent;
+    background-image: url("../../image/dog-parfum2.png"), url("../../image/circle-4.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 50px;
+}
+
+.news {
+    display: flex;
+    justify-content: center;
+}
+
+.block-news {
+    display: flex;
+    width: 1000px;
+}
+
+.block-news img {
+    height: 120px;
+    border-radius: 10px;
+}
+
+.card-news {
+    display: grid;
+    justify-content: center;
+    border: 1px solid forestgreen;
+    padding: 10px;
+    margin: 10px;
+    grid-template-rows: 120px auto;
+    
+}
+
+
+

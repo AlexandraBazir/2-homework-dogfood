@@ -35,11 +35,11 @@ ul {
   font-size: 1rem;
 }
 
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {
     .container {
       grid-template-columns: repeat(3, 1fr);
     }
-}
+} */
 
 .info {
   display: flex;
