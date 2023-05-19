@@ -6,24 +6,24 @@ import dogVacation from "../../image/dog-vacation.png";
 
 const BlockNews = () => {
     return <>
-    <h2>Новости</h2>
     <div className="news">
+    <h2>Новости</h2>
     <div className="block-news">
         <div className="card-news">
-            <img src={newShop} alt=""/>
-            <p>Открытие второго магазина <br/> &laquo;DogFood&raquo; в Санкт-Петербурге</p>
+           <img src={newShop} alt=""/>
+            <p>Открытие второго магазина &laquo;DogFood&raquo; в Санкт-Петербурге</p>
             </div>
         <div className="card-news">
         <img src={vetPharmacy} alt=""/>
-            <p>Новый пет-сервис <br/> &laquo;Страхование питомцев по подписке&raquo;</p>
+            <p>Новый пет-сервис &laquo;Страхование питомцев по подписке&raquo;</p>
             </div>
         <div className="card-news">
         <img src={dogVacation} alt=""/>
-            <p>Готовимся в отпуск <br/> с питомцем</p>
+            <p>Готовимся в отпуск с питомцем</p>
             </div>
         <div className="card-news">
         <img src={dogInsurance} alt=""/>
-            <p>Новинки в разделе <br/> &laquo;Ветеринарная аптека&raquo;</p>
+            <p>Новинки в разделе &laquo;Ветеринарная аптека&raquo;</p>
             </div>
     </div>
     </div>

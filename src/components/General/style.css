@@ -34,6 +34,11 @@ header {
     cursor: pointer;
 }
 
+.header__menu a:hover,
+.header__menu span:hover {
+    color: orangered;
+}
+
 footer {
     display: flex;
     justify-content: space-around;
@@ -85,3 +90,28 @@ footer {
     color: orangered;
 }
 
+@media (max-width: 768px) {
+    .header__menu,
+    .header__menu span {
+    font-size: 1rem;
+}
+}
+
+@media (max-width: 576px) {
+    .footer__logo {
+        display: none;
+    }
+    .footer__nav {
+        display: none;
+    }
+    .footer__contacts {
+        justify-items: center;
+    }
+    /* .header__menu,
+    .header__menu span {
+    font-size: 0.8rem;
+} */
+    .logo__text {
+        display: none;
+    }
+}

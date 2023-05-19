@@ -2,10 +2,10 @@
     background-color: #fff;
     display: grid;
     gap: 12px;
-    border: 1px solid forestgreen;
+    border: 1px solid #ffe44d;
     padding: 12px;
     border-radius: 8px;
-    grid-template-rows: 120px auto 1fr 39px;
+    grid-template-rows: 120px 35px 100px 39px;
     align-content: center;
 }
 

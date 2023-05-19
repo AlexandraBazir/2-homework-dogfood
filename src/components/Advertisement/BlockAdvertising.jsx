@@ -11,8 +11,6 @@ const BlockAdvertising = () => {
         <p>Гипоаллергенный <br/>
             и натуральный</p>
         </div>
-    </div>
-    <div className="block-advertising">
     <div className="block-advertising-3">
             <h2>Игрушки для собак</h2>
             <p>Большой выбор! <br/>
@@ -23,7 +21,7 @@ const BlockAdvertising = () => {
             <h2>Духи для собак</h2>
         <p>Французского качества</p>
         </div>
-    </div>
+        </div>
     </>
 }
 

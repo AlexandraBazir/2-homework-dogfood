@@ -9,17 +9,19 @@ import "./style.css";
 
 
 const Home = ({ goods, user, setActive }) => {
+    const breakPoints = [
+        { width: 1, itemsToShow: 1 },
+        { width: 576, itemsToShow: 2 },
+        { width: 768, itemsToShow: 3 },
+        { width: 1200, itemsToShow: 3 }
+      ];
     return <>
-    <div>
     <BlockHeader/>
-    </div>
-    <div>
+    <div className="home">
     <Promo/>
-    </div>
-    <div>
     {user &&
         <div className="home-carousel">
-        <Carousel itemsToShow={6} enableAutoPlay autoPlaySpeed={1500}>
+        <Carousel breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={1500}>
             {goods.map((pro, i) => (
     <Card key={i} img={pro.pictures} name={pro.name} price={pro.price} />))}
         </Carousel>
@@ -27,9 +29,7 @@ const Home = ({ goods, user, setActive }) => {
         }
     {!user && <>
     <span className="info-link"
-    onClick={() => setActive(true)}>Авторизуйтесь</span>, чтобы получить доступ к сайту</>}
-    </div>
-    <div>
+    onClick={() => setActive(true)}>Авторизуйтесь, чтобы получить доступ к сайту</span></>}
         <BlockAdvertising/>
         <BlockNews/>
         <Promo/>
