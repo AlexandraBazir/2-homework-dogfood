@@ -1,4 +1,4 @@
-.block-header {
+.banner {
     background-color: #ffe44d;
     min-height: 300px;
     max-height: 400px;
@@ -6,12 +6,12 @@
     padding-left: 150px;
 }
 
-.block-header h1,
-.block-header p {
+.banner h1,
+.banner p {
     line-height: 120%;
 }
 
-.header-button {
+.banner-button {
     border-radius: 10px;
     background-color: white;
     width: 100px;
@@ -25,14 +25,14 @@
     margin-top: 10px;
 }
 
-.header-button span {
+.banner-button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.header-button span:after {
+.banner-button span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -42,16 +42,16 @@
     line-height: 100%;
 }
 
-.header-button:hover span {
+.banner-button:hover span {
     padding-right: 15px;
 }
 
-.header-button:hover span:after {
+.banner-button:hover span:after {
     opacity: 1;
     right: 0;
 }
 
-.promo-block {
+.promo {
     display: flex;
     justify-content: center;
     margin-top: -30px;
@@ -60,21 +60,13 @@
 
 .promo-text {
     background-color: #ff8f27;
-    /* position: absolute; */
-    /* top: 350px;
-     */
-    background-image: url("../../image/promo-dog2.png"), url("../../image/promo-gift.png");
+    background-image: url("../../image/promo-dog.png"), url("../../image/promo-gift.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 70%;
     border-radius: 10px;
     height: 300px;
     width: 920px;
-    /* 
-    border: 16px solid transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; */
 }
 
 .promo-text h2,
@@ -87,22 +79,22 @@
     padding-top: 50px;
 }
 
-.block-advertising {
+.adblock {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: stretch;
     color: white;
 }
 
-.block-advertising h2,
-.block-advertising p {
+.adblock h2,
+.adblock p {
     padding-left: 20px;
 }
 
-.block-advertising-1 {
+.adblock-clothes {
     background-color: #d7a216;
     border-radius: 10px;
-    background-image: url("../../image/pngegg.png"), url("../../image/круг.png");
+    background-image: url("../../image/dog-clothes.png"), url("../../image/circle-clothes.png");
     background-position: right;
     background-repeat: no-repeat;
     background-size: 60%;
@@ -110,70 +102,50 @@
     height: 200px;
     padding: 10px;
     justify-self: flex-start;
-    /* 
-    border: 8px solid transparent;
-    
-    
-    padding: 10px;
-     */
 }
 
-.block-advertising-2 {
+.adblock-shampoo {
     background-color: #25b5be;
     border-radius: 10px;
-    background-image: url("../../image/pngegg1.png"), url("../../image/круг2.png");
+    background-image: url("../../image/shampoo-dogs.png"), url("../../image/circle-shapmoo.png");
     background-position: right;
     background-repeat: no-repeat;
     background-size: 60%;
     width: 430px;
     height: 200px;
-
     padding: 10px;
     justify-self: flex-end;
-    /* 
-    border: 8px solid transparent;
-    
-    padding: 10px;
-    */
 }
 
-.block-advertising-3 {
+.adblock-toys {
     background-color: #9cce55;
     border-radius: 10px;
-    background-image: url("../../image/dog-play.png"), url("../../image/circle-3.png");
+    background-image: url("../../image/dog-toys.png"), url("../../image/circle-toys.png");
     background-position: right;
     background-repeat: no-repeat;
     background-size: 60%;
     width: 430px;
     height: 200px;
     padding: 10px;
-    /* margin-right: 5px; */
     margin-top: 10px;
     justify-self: flex-start;
-
 }
 
-.block-advertising-4 {
+.adblock-parfum {
     background-color: #db6825;
     border-radius: 10px;
-    background-image: url("../../image/dog-parfum2.png"), url("../../image/circle-4.png");
+    background-image: url("../../image/dog-parfum.png"), url("../../image/circle-parfum.png");
     background-position: right;
     background-repeat: no-repeat;
     background-size: 60%;
     width: 430px;
     height: 200px;
     padding: 10px;
-    /* margin-left: 5px; */
     margin-top: 10px;
     justify-self: flex-end;
 }
 
-/* .news {
-    display: grid;
-    width: 920px;
-} */
-
-.block-news {
+.news {
     display: flex;
     justify-content: space-between;
 }
@@ -189,11 +161,7 @@
     border-radius: 10px;
 }
 
-.news h1 {
-    width: 910px;
-}
-
-.block-news p {
+.news p {
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
@@ -201,82 +169,84 @@
 
 @media (max-width: 992px) {
     .promo-text {
-       width: 750px;
-     }
-    .card-news {
-        
+        width: 750px;
     }
-    .news {
-        
-    }
-    .block-advertising-1,
-    .block-advertising-2,
-    .block-advertising-3,
-    .block-advertising-4 {
+
+    .adblock-size {
         width: 352px;
     }
- }
+}
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
     .promo-text {
         width: 550px;
         background-size: 100%;
-      }
-      .block-news {
+    }
+
+    .news {
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-items: stretch;
-     }
-      .card-news {
+    }
+
+    .card-news {
         width: 220px;
         justify-self: center;
     }
-    
-    .block-advertising-1,
-    .block-advertising-2,
-    .block-advertising-3,
-    .block-advertising-4 {
+
+    .adblock-size {
         width: 252px;
     }
- }
+}
 
- @media (max-width: 576px) {
-    .block-header {
+@media (max-width: 576px) {
+    .banner {
         padding-left: 30px;
+        padding-top: 30px;
     }
+
+    .banner h1,
+    .banner p {
+        font-size: 1.2rem;
+    }
+
     .promo-text {
-        width: 350px;
+        width: 340px;
         max-width: 100%;
         height: 200px;
-        
-      }
-      .promo-text h2, .promo-text p {
+    }
+
+    .promo-text h2,
+    .promo-text p {
         padding-left: 10px;
         font-size: 1.2rem;
-      }
-      .promo-text h2 {
+    }
+
+    .promo-text h2 {
         padding-top: 10px;
     }
-      .block-news {
+
+    .news {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    .card-news{
+
+    .card-news {
         display: grid;
         grid-template-rows: 1fr auto;
-        /* margin: 30px 0; */
         margin-bottom: 30px;
         width: 350px;
         max-width: 100%;
         justify-self: stretch;
     }
-    .block-advertising-1,
-    .block-advertising-2,
-    .block-advertising-3,
-    .block-advertising-4 {
+
+    .vet-pharmacy {
+        margin-bottom: 60px;
+    }
+
+    .adblock-size {
         width: 152px;
         height: 160px;
         font-size: 0.8rem;
     }
- }
-
+}

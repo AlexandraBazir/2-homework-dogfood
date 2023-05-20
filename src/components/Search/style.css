@@ -45,25 +45,28 @@ i {
     .search-container {
         width: 300px;
     }
+
     .search {
         width: 284px;
     }
- }
+}
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
     .search-container {
         width: 300px;
     }
+
     .search {
         width: 264px;
     }
- }
+}
 
- @media (max-width: 576px) {
+@media (max-width: 576px) {
     .search-container {
         width: 170px;
     }
+
     .search {
         width: 134px;
     }
- }
+}

@@ -1,147 +1,110 @@
  .home {
-   display: grid;
-   /* grid-template-columns: 900px; */
-   justify-content: center;
-   min-width: fit-content;
+    display: grid;
+    justify-content: center;
+    min-width: fit-content;
  }
- 
+
  .home-carousel {
     display: flex;
     align-items: center;
     height: 400px;
     width: 920px;
-    /* background-color: aquamarine; */
  }
 
-.rec-swipable {
-   /* background-color: brown; */
-   align-items: center;
-}
-
-/* .rec-carousel-item {
-   background-color: darkgoldenrod;
-}
-
-.rec-item-wrapper {
-   background-color: rgb(11, 158, 184);
-} */
-
-.rec .card-lite {
-   border: none;
-   grid-template-columns: 200px;
-   height: 300px;
-   margin: 10px;
-   justify-content: center;
-}
-
-.rec .rec-arrow-right {
-   /* margin-right: 10px; */
-}
-
-.rec .rec-arrow-left {
-   /* margin-left: 10px; */
-}
-
-.rec .rec-arrow {
-   box-shadow: rgb(255, 69, 0) 0px 0px 2px 0px;
-}
-
-.rec .rec-arrow:hover:enabled,
-.rec .rec-arrow:focus:enabled {
-   background-color: orangered;
-}
-
-.rec .rec-dot {
-   visibility: hidden;
-   max-height: 10px;
-}
-
-.rec .rec-pagination {
-   max-height: 10px;
-   margin: 0;
-}
-
-/* .rec .rec-dot:hover {
-   box-shadow: rgb(255, 69, 0, 0.5) 0px 0px 1px 3px;
-}
-
- .rec .rec-dot_active {
-    background-color: rgba(255, 69, 0, 0.5);
-    box-shadow: rgb(255, 69, 0) 0px 0px 1px 3px;
-
+ .rec-swipable {
+    align-items: center;
  }
 
- .rec .rec-dot_active:focus {
-   box-shadow: rgb(255, 69, 0) 0px 0px 1px 3px;
-} */
+ .rec .card-lite {
+    border: none;
+    grid-template-columns: 200px;
+    height: 300px;
+    margin: 10px;
+    justify-content: center;
+ }
 
-.container {
-   padding: 30px;
-   display: grid;
-   /* gap: 20px; */
-   align-content: center;
+ .rec .rec-arrow {
+    box-shadow: rgb(255, 69, 0) 0px 0px 2px 0px;
+ }
+
+ .rec .rec-arrow:hover:enabled,
+ .rec .rec-arrow:focus:enabled {
+    background-color: orangered;
+ }
+
+ .rec .rec-dot,
+ .rec .rec-pagination {
+    display: none;
+ }
+
+ .container {
+    padding: 30px;
  }
 
  .container-card {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
  }
 
-.info {
-   display: flex;
-   justify-content: center;
-   align-items: center;
+ .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }
- 
+
  .info-link {
-   display: flex;
-   justify-content: center;
-   cursor: pointer;
-   text-shadow: 0 0 2px yellow;
-   user-select: none;
-   margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    text-shadow: 0 0 2px yellow;
+    user-select: none;
+    margin-bottom: 20px;
  }
- 
+
  .info-link:hover {
-   text-shadow: 0 0 7px yellow;
+    text-shadow: 0 0 7px yellow;
  }
 
  @media (max-width: 1200px) {
-   .container-card {
-      grid-template-columns: repeat(2, 1fr)
+    .container-card {
+       grid-template-columns: repeat(2, 1fr)
+    }
  }
-}
 
  @media (max-width: 992px) {
-   .home-carousel  {
-      width: 750px;
+    .home-carousel {
+       width: 750px;
     }
+
     .container-card {
-      grid-template-columns: 1fr;
+       grid-template-columns: 1fr;
+    }
  }
-}
 
-@media (max-width: 768px) {
-   .home-carousel  {
-      width: 550px;
+ @media (max-width: 768px) {
+    .home-carousel {
+       width: 550px;
     }
+
     .container {
-      padding: 10px;
+       padding: 10px;
     }
-    .container-card .card-lite {
-      grid-template-rows: 90px 20px 26px 36px;
-      font-size: 0.9rem;
-    }
-}
 
-@media (max-width: 576px) {
-   .home-carousel  {
-      width: 350px;
-      max-width: 100%;
-    }
     .container-card .card-lite {
-      grid-template-rows: 70px 10px 20px 36px;
-      font-size: 0.7rem;
+       grid-template-rows: 90px 20px auto 36px;
+       font-size: 0.9rem;
     }
-}
+ }
+
+ @media (max-width: 576px) {
+    .home-carousel {
+       width: 350px;
+       max-width: 100%;
+    }
+
+    .container-card .card-lite {
+       grid-template-rows: 70px 10px auto 36px;
+       font-size: 0.7rem;
+    }
+ }

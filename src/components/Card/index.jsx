@@ -3,7 +3,7 @@ import "./style.css";
 const Card = (props) => {
     return (
         <div className="card-lite">
-            <img src={props.img} alt={props.name}/>
+            <img src={props.img} alt={props.name} />
             <h4>{props.price} ₽</h4>
             <p>{props.name}</p>
             <button>Купить</button>

@@ -11,7 +11,7 @@ import Search from "../Search";
 
 import "./style.css";
 
-const Header = ({user, upd, searchArr, setGoods, setSearchResult, setModalOpen}) => {
+const Header = ({ user, upd, searchArr, setGoods, setSearchResult, setModalOpen }) => {
     const login = () => {
         setModalOpen(true)
     };
@@ -24,26 +24,26 @@ const Header = ({user, upd, searchArr, setGoods, setSearchResult, setModalOpen})
             <Logo />
             <div className="search-block">
                 <Search
-                data={searchArr}
-                setGoods={setGoods}
-                setSearchResult={setSearchResult}
+                    baseData={searchArr}
+                    setGoods={setGoods}
+                    setSearchResult={setSearchResult}
                 />
             </div>
             <nav className="header__menu">
-            { user && <>
-            <Link to="/">
-            <Heart title="Избранное"/>
-            </Link>
-            <Link to="/">
-                <Bag title="Корзина"/>
-                </Link>
-                <Link to="/">
-                <PersonCircle title="Личный кабинет"/>
-                </Link>
+                {user && <>
+                    <Link to="/">
+                        <Heart title="Избранное" />
+                    </Link>
+                    <Link to="/">
+                        <Bag title="Корзина" />
+                    </Link>
+                    <Link to="/">
+                        <PersonCircle title="Личный кабинет" />
+                    </Link>
                 </>}
                 <span>
-                    {!user && <BuildingFillUp title="Войти" onClick={login}/>}
-                    {user && <BuildingFillDown title="Выйти"onClick={logout}/>}
+                    {!user && <BuildingFillUp title="Войти" onClick={login} />}
+                    {user && <BuildingFillDown title="Выйти" onClick={logout} />}
                 </span>
             </nav>
         </header>

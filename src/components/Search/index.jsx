@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { SearchHeart } from "react-bootstrap-icons"
+import { SearchHeart } from "react-bootstrap-icons";
+
 import "./style.css";
 
-const Search = ({data, setGoods, setSearchResult}) => {
+const Search = ({ baseData, setGoods, setSearchResult }) => {
     const navigate = useNavigate();
     const [text, setText] = useState("");
     const [num, setNum] = useState(0);
@@ -24,14 +25,13 @@ const Search = ({data, setGoods, setSearchResult}) => {
         setSearchResult(str);
     }, [num, text]);
     useEffect(() => {
-        let result = data.filter(el => el.name.toLowerCase().includes(text));
+        let result = baseData.filter(el => el.name.toLowerCase().includes(text));
         setGoods(result);
         setNum(result.length);
-        console.log(result);
-    }, [text]);
+    }, [text, baseData]);
     return <div className="search-container">
-    <input className="search" type="search" placeholder="Поиск" value={text} onChange={changeValue}/>
-    <i><SearchHeart/></i>
+        <input className="search" type="search" placeholder="Поиск" value={text} onChange={changeValue} />
+        <i><SearchHeart /></i>
     </div>
 }
 

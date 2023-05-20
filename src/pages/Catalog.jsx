@@ -1,7 +1,10 @@
 import Card from "../components/Card";
 
-const Catalog = ({ goods, user, setActive }) => {
+import "./style.css";
+
+const Catalog = ({ goods, user, setActive, searchResult }) => {
     return <div className="container">
+        {searchResult && <p className="search-result">{searchResult}</p>}
         {user && <>
             <h1 style={{ margin: 0, justifySelf: "flex-start" }}>Каталог</h1>
             <div className="container-card">{goods.map((pro, i) => (

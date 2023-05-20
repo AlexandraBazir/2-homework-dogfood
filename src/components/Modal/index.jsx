@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { XOctagon } from "react-bootstrap-icons";
+
 import "./style.css";
 
 const Modal = ({
@@ -7,7 +8,7 @@ const Modal = ({
     setIsActive,
     setUser
 }) => {
-    const [isReg, setISReg] = useState(false);
+    const [isReg, setIsReg] = useState(false);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
@@ -15,7 +16,7 @@ const Modal = ({
 
     const changeForm = (e) => {
         e.preventDefault();
-        setISReg(!isReg);
+        setIsReg(!isReg);
         clearForm();
     }
     const clearForm = () => {
@@ -34,7 +35,6 @@ const Modal = ({
             body.name = name
             body.group = "group-12"
         }
-        console.log(body);
         const path = `https://api.react-learning.ru/${isReg ? "signup" : "signin"}`;
         const res = await fetch(path, {
             method: "POST",
@@ -44,19 +44,18 @@ const Modal = ({
             body: JSON.stringify(body)
         })
         const data = await res.json();
-        console.log(data);
         if (isReg) {
-            if (data._id) {
-                setISReg(false);
+            if (data?._id) {
+                setIsReg(false);
             }
         } else {
-            if (data?.token) {
+            if (data && data.token) {
                 localStorage.setItem("token12", data.token)
             }
             if (data?.data) {
-                localStorage.setItem("user", data.data.name);
+                localStorage.setItem("user12", data.data.name);
                 setUser(data.data.name);
-                localStorage.setItem("user-id", data.data._id);
+                localStorage.setItem("user12-id", data.data._id);
                 clearForm();
                 setIsActive(false);
             }
@@ -105,7 +104,6 @@ const Modal = ({
                 >
                 </input>}
                 <div className="modal-btns">
-                    {/* Если у меня форма регистрации и пароли не равны или не введен пароль - кнопка не активна */}
                     <button type="submit" disabled={isReg && (!pwd || pwd !== pwd2)}>
                         {isReg ? "Зарегистрироваться" : "Войти"}
                     </button>
