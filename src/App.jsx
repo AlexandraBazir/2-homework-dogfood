@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import Context from "./Context";
 import Header from "./components/General/Header";
 import Footer from "./components/General/Footer";
 import Home from "./pages/Home";
 import Catalog from "./pages/Catalog";
 import Modal from "./components/Modal";
 import Banner from "./components/Advertisement/Banner"
+import Product from "./pages/Product";
+import Favorites from "./pages/Favorites";
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem("user12"));
@@ -45,27 +48,31 @@ function App() {
     setGoods(baseData)
   }, [baseData])
   return (
-    <>
-      <Header
-        user={user}
-        upd={setUser}
-        searchArr={baseData}
-        setGoods={setGoods}
-        setSearchResult={setSearchResult}
-        setModalOpen={setModalOpen}
-      />
+    <Context.Provider value={{
+      searchResult,
+      setSearchResult,
+      setBaseData,
+      setUser,
+      setModalOpen,
+      setGoods,
+      modalOpen,
+      baseData,
+      goods,
+      user,
+      userId,
+      token
+    }}>
+      <Header />
       <Routes>
-        <Route path="/" element={<Home user={user} setActive={setModalOpen} goods={goods} />} />
-        <Route path="/catalog" element={<Catalog goods={goods} user={user} setActive={setModalOpen} searchResult={searchResult} />} />
-        <Route path="/catalog" element={<Banner user={user} setActive={setModalOpen} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/catalog" element={<Banner />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
       <Footer />
-      <Modal
-        isActive={modalOpen}
-        setIsActive={setModalOpen}
-        setUser={setUser}
-      />
-    </>
+      <Modal />
+    </Context.Provider>
   )
 }
 

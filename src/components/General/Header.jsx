@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import Context from "../../Context";
 import Logo from "./Logo";
 import {
     Heart,
@@ -11,27 +13,31 @@ import Search from "../Search";
 
 import "./style.css";
 
-const Header = ({ user, upd, searchArr, setGoods, setSearchResult, setModalOpen }) => {
+const Header = () => {
+    const {
+        user,
+        setUser,
+        baseData,
+        setGoods,
+        setSearchResult,
+        setModalOpen
+    } = useContext(Context);
     const login = () => {
         setModalOpen(true)
     };
     const logout = () => {
         localStorage.removeItem("user")
-        upd(null);
+        setUser(null);
     };
     return (
         <header>
             <Logo />
             <div className="search-block">
-                <Search
-                    baseData={searchArr}
-                    setGoods={setGoods}
-                    setSearchResult={setSearchResult}
-                />
+                <Search />
             </div>
             <nav className="header__menu">
                 {user && <>
-                    <Link to="/">
+                    <Link to="/favorites">
                         <Heart title="Избранное" />
                     </Link>
                     <Link to="/">

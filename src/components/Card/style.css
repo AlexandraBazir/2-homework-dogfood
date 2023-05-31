@@ -5,8 +5,10 @@
     border: 1px solid #ffe44d;
     padding: 12px;
     border-radius: 8px;
-    grid-template-rows: 120px 35px 100px 39px;
+    grid-template-rows: 120px 35px 1fr 39px;
     align-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .card-lite h4 {
@@ -33,4 +35,21 @@
     cursor: pointer;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
     text-align: center;
+}
+
+.card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.card-like {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1;
+    color: red;
 }

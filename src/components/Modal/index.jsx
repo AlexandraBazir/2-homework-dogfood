@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { XOctagon } from "react-bootstrap-icons";
+import Context from "../../Context";
 
 import "./style.css";
 
-const Modal = ({
-    isActive,
-    setIsActive,
-    setUser
-}) => {
+const Modal = () => {
+    const { modalOpen, setModalOpen, setUser } = useContext(Context);
     const [isReg, setIsReg] = useState(false);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -57,20 +55,19 @@ const Modal = ({
                 setUser(data.data.name);
                 localStorage.setItem("user12-id", data.data._id);
                 clearForm();
-                setIsActive(false);
+                setModalOpen(false);
             }
         }
     }
 
     const st = {
-        display: isActive ? "flex" : "none"
+        display: modalOpen ? "flex" : "none"
     }
-
     return <div className="modal-wrapper" style={st}>
         <div className="modal">
             <button
                 className="modal-close"
-                onClick={(e) => setIsActive(false)}>
+                onClick={(e) => setModalOpen(false)}>
                 <XOctagon />
             </button>
             <h3>{isReg ? "Регистрация" : "Вход"}</h3>
