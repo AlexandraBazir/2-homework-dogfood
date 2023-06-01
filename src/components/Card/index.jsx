@@ -14,7 +14,6 @@ const Card = ({ name, _id, img, likes, price }) => {
         setIsLike(!isLike);
         setLikeFlag(true);
     }
-    console.log(_id);
     useEffect(() => {
         if (likeFlag) {
             fetch(`${path}/products/likes/${_id}`, {
