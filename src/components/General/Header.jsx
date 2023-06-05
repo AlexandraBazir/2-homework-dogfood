@@ -20,7 +20,8 @@ const Header = () => {
         baseData,
         setGoods,
         setSearchResult,
-        setModalOpen
+        setModalOpen,
+        cart
     } = useContext(Context);
     const login = () => {
         setModalOpen(true)
@@ -40,8 +41,11 @@ const Header = () => {
                     <Link to="/favorites">
                         <Heart title="Избранное" />
                     </Link>
-                    <Link to="/">
-                        <Bag title="Корзина" />
+                    <Link to="/cart" className="a-block">
+                      <Bag title="Корзина"/>
+                    {cart.length > 0 && <span className="header__badge" style={{fontSize: "0.9rem"}}>
+                        {cart.reduce((acc, el) => acc + el.cnt, 0)}
+                        </span>}
                     </Link>
                     <Link to="/">
                         <PersonCircle title="Личный кабинет" />

@@ -7,8 +7,8 @@ import "./style.css";
 const links = [
     { name: "Каталог", src: "/catalog" },
     { name: "Акции", src: "/" },
-    { name: "Избранное", src: "/" },
-    { name: "Корзина", src: "/" },
+    { name: "Избранное", src: "/favorites" },
+    { name: "Корзина", src: "/cart" },
     { name: "Оплата и доставка", src: "/" },
     { name: "Часто спрашивают", src: "/" },
     { name: "Обратная связь", src: "/" },

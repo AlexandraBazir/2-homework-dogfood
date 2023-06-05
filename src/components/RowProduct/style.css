@@ -1,0 +1,32 @@
+.button-group button {
+    border-radius: 10px;
+    background-color: none;
+    color: black;
+    width: 40px;
+    height: 36px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* cursor: pointer; */
+    text-align: center;
+    margin: 2px;
+}
+
+.button__dec, .button__inc {
+    background-color: #ffe44d;
+    cursor: pointer;
+}
+
+.button__dec:hover, 
+.button__inc:hover {
+ background-color: #FFF09D;
+}
+
+.icon-cart {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.icon-cart:hover {
+    color: orangered;
+}

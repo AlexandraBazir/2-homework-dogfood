@@ -22,6 +22,7 @@ const Catalog = () => {
                     price={pro.price}
                     _id={pro._id}
                     likes={pro.likes}
+                    discount={pro.discount}
                 />))}</div>
         </>}
         {!user && <>

@@ -14,13 +14,14 @@ const breakPoints = [
 ];
 
 const Product = () => {
-    const { userId, token } = useContext(Context);
+    const { userId, token, cart, setCart } = useContext(Context);
     const { id } = useParams();
     const [data, setData] = useState({});
     const [rev, setRev] = useState([]);
     const [revText, setRevText] = useState("");
     const [revRating, setRevRating] = useState(0);
     const [hideForm, setHideForm] = useState(true);
+    const inCart = cart.filter(el => id === el.id).length > 0;
     const path = "https://api.react-learning.ru";
     const navigate = useNavigate();
     const goBack = () => {
@@ -59,6 +60,23 @@ const Product = () => {
                 setData(d);
             })
     }
+    // const buy = (e) => {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     setCart(prev => {
+    //         const test = prev.filter(el => el.id === id);
+    //         if (test.length) {
+    //             return prev.map(el => {
+    //                 if (el.id === id) {
+    //                     el.cnt++;
+    //                 }
+    //                 return el;
+    //             })
+    //         } else {
+    //             return [...prev, {id: id, cnt: 1, discount, price}]
+    //         }
+    //     })
+    // }
     useEffect(() => {
         fetch(`${path}/products/${id}`, {
             headers: {
@@ -68,6 +86,7 @@ const Product = () => {
             .then(res => res.json())
             .then(serverData => {
                 setData(serverData);
+                
             })
     }, [])
 
@@ -82,6 +101,18 @@ const Product = () => {
                 setRev(serData);
             })
     })
+    const addToBasket = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // нет проверки на то, что товар уже есть в корзине и нужно увеличить
+        // его кол-во, как на странице одного товара
+        setCart(prev => [...prev, {
+            id: id,
+            price: data.price,
+            discount: data.discount,
+            cnt: 1
+        }])
+    }
     return <div className="product-page">
         <span><button onClick={goBack} className="button__goback">Назад</button></span>
         {data.name ? <div>
@@ -89,7 +120,7 @@ const Product = () => {
             <div className="product-card">
                 <div className="product-img"><img src={data.pictures} alt={data.name} /></div>
                 <h2 className="product-price">{data.price} ₽</h2>
-                <button className="product-button">В корзину</button>
+                <button className="product-button" disabled={inCart} onClick={addToBasket}>В корзину</button>
                 <div className="product-text_1">
                     <h3>Доставка по всему Миру!</h3>
                     <p>Доставка курьером - от 399 ₽ <br />

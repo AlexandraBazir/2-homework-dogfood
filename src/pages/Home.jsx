@@ -33,7 +33,7 @@ const Home = () => {
                 <div className="home-carousel">
                     <Carousel breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={1500}>
                         {goods.map((pro, i) => (
-                            <Card key={i} img={pro.pictures} name={pro.name} price={pro.price} _id={pro._id} likes={pro.likes} token={token} userId={userId} />))}
+                            <Card key={i} img={pro.pictures} name={pro.name} price={pro.price} _id={pro._id} likes={pro.likes} token={token} userId={userId} discount={pro.discount}/>))}
                     </Carousel>
                 </div>
             }
