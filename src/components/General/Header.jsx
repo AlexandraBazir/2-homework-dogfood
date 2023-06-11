@@ -17,9 +17,6 @@ const Header = () => {
     const {
         user,
         setUser,
-        baseData,
-        setGoods,
-        setSearchResult,
         setModalOpen,
         cart
     } = useContext(Context);
@@ -41,10 +38,10 @@ const Header = () => {
                     <Link to="/favorites">
                         <Heart title="Избранное" />
                     </Link>
-                    <Link to="/cart" className="a-block">
-                      <Bag title="Корзина"/>
-                    {cart.length > 0 && <span className="header__badge" style={{fontSize: "0.9rem"}}>
-                        {cart.reduce((acc, el) => acc + el.cnt, 0)}
+                    <Link to="/cart">
+                        <Bag title="Корзина" />
+                        {cart.length > 0 && <span className="header__badge" style={{ fontSize: "0.9rem" }}>
+                            {cart.reduce((acc, el) => acc + el.cnt, 0)}
                         </span>}
                     </Link>
                     <Link to="/">

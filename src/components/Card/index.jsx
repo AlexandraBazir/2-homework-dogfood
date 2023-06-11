@@ -18,19 +18,12 @@ const Card = ({ name, _id, img, likes, price, discount }) => {
     const buy = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        setCart(prev => {
-            const test = prev.filter(el => el.id === _id);
-            if (test.length) {
-                return prev.map(el => {
-                    if (el.id === _id) {
-                        el.cnt++;
-                    }
-                    return el;
-                })
-            } else {
-                return [...prev, {id: _id, cnt: 1, discount, price}]
-            }
-        })
+        setCart(prev => [...prev, {
+            id: _id,
+            price,
+            discount,
+            cnt: 1
+        }])
     }
     useEffect(() => {
         if (likeFlag) {
@@ -63,7 +56,9 @@ const Card = ({ name, _id, img, likes, price, discount }) => {
             <img src={img} alt={name} />
             <h4>{price} ₽</h4>
             <p>{name}</p>
-            <button style={{zIndex: "1"}} onClick={buy} disabled={inCart}>Купить</button>
+            <button style={{ zIndex: "1" }} onClick={buy} disabled={inCart}>
+                {inCart ? "В корзине" : "Купить"}
+            </button>
             <Link to={`/product/${_id}`} className="card-link"></Link>
         </div>
     )

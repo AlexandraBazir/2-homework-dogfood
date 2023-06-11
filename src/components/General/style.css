@@ -62,7 +62,7 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 10px 60px;
     padding-inline-start: 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .footer__nav a:hover {
@@ -92,11 +92,21 @@ footer {
 
 .header__badge {
     position: absolute;
+    display: flex;
+    justify-content: center;
     border-radius: 10px;
     background-color: white;
     padding: 0 3px;
     top: 35px;
     right: 65px;
+    min-width: 10px;
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+    .footer__nav {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -105,9 +115,14 @@ footer {
     .header__menu span {
         font-size: 1rem;
     }
+
     .header__badge {
         top: 35px;
-    right: 50px;
+        right: 50px;
+    }
+
+    .footer__nav {
+        gap: 5px 10px;
     }
 }
 

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Context from "../Context";
 import Carousel from 'react-elastic-carousel';
 import { Trash3 } from "react-bootstrap-icons";
+import ProductСounter from "../components/ProductСounter";
 
 import "./style.css";
 
@@ -14,7 +15,7 @@ const breakPoints = [
 ];
 
 const Product = () => {
-    const { userId, token, cart, setCart } = useContext(Context);
+    const { userId, token, cart, setCart, setBaseData } = useContext(Context);
     const { id } = useParams();
     const [data, setData] = useState({});
     const [rev, setRev] = useState([]);
@@ -60,23 +61,30 @@ const Product = () => {
                 setData(d);
             })
     }
-    // const buy = (e) => {
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     setCart(prev => {
-    //         const test = prev.filter(el => el.id === id);
-    //         if (test.length) {
-    //             return prev.map(el => {
-    //                 if (el.id === id) {
-    //                     el.cnt++;
-    //                 }
-    //                 return el;
-    //             })
-    //         } else {
-    //             return [...prev, {id: id, cnt: 1, discount, price}]
-    //         }
-    //     })
-    // }
+    const addToBasket = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setCart(prev => [...prev, {
+            id: id,
+            price: data.price,
+            discount: data.discount,
+            cnt: 1
+        }])
+    }
+    const delProduct = () => {
+        fetch(`${path}/products/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+            .then(d => {
+                setBaseData(prev => prev.filter(el => el._id !== id));
+                setCart(prev => prev.filter(e => e.id !== id))
+                navigate("/catalog");
+            })
+    }
     useEffect(() => {
         fetch(`${path}/products/${id}`, {
             headers: {
@@ -86,7 +94,6 @@ const Product = () => {
             .then(res => res.json())
             .then(serverData => {
                 setData(serverData);
-                
             })
     }, [])
 
@@ -100,27 +107,20 @@ const Product = () => {
             .then(serData => {
                 setRev(serData);
             })
-    })
-    const addToBasket = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        // нет проверки на то, что товар уже есть в корзине и нужно увеличить
-        // его кол-во, как на странице одного товара
-        setCart(prev => [...prev, {
-            id: id,
-            price: data.price,
-            discount: data.discount,
-            cnt: 1
-        }])
-    }
+    }, [rev])
     return <div className="product-page">
         <span><button onClick={goBack} className="button__goback">Назад</button></span>
         {data.name ? <div>
-            <h1>{data.name}</h1>
+            {data.author._id === userId ? <div className="product-name"><h1>{data.name}</h1><span className="product-delete"><Trash3 onClick={delProduct} /></span></div>
+                : <h1>{data.name}</h1>
+            }
             <div className="product-card">
                 <div className="product-img"><img src={data.pictures} alt={data.name} /></div>
                 <h2 className="product-price">{data.price} ₽</h2>
-                <button className="product-button" disabled={inCart} onClick={addToBasket}>В корзину</button>
+                <div className="product-button-group">
+                    <button className="product-button" disabled={inCart} onClick={addToBasket}>{inCart ? "В корзине" : "В корзину"} </button>
+                    {inCart && <>{cart.map((el, i) => el.id === id && <ProductСounter key={i} cnt={el.cnt} />)}</>}
+                </div>
                 <div className="product-text_1">
                     <h3>Доставка по всему Миру!</h3>
                     <p>Доставка курьером - от 399 ₽ <br />

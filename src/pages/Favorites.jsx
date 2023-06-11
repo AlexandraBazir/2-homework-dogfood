@@ -14,7 +14,9 @@ const Favorites = () => {
                     _id={pro._id}
                     likes={pro.likes}
                     userId={userId}
-                    token={token} />
+                    token={token}
+                    discount={pro.discount}
+                />
             ))}
         </div>
     </div>

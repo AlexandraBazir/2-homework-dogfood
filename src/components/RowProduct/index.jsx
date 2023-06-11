@@ -5,8 +5,8 @@ import Context from "../../Context";
 
 import "./style.css";
 
-const Row = ({name, pictures, cnt, price, id, discount}) => {
-    const {setCart, cart} = useContext(Context);
+const Row = ({ name, pictures, cnt, price, id, discount }) => {
+    const { setCart } = useContext(Context);
     const [n, setN] = useState(cnt);
     const [flag, setFlag] = useState(false);
     const sum = price * n;
@@ -14,7 +14,7 @@ const Row = ({name, pictures, cnt, price, id, discount}) => {
     const increment = () => {
         setFlag(true);
         setN(n + 1);
-        
+
     }
     const decrement = () => {
         setFlag(true);
@@ -42,21 +42,21 @@ const Row = ({name, pictures, cnt, price, id, discount}) => {
         }
     }, [n])
     return <tr>
-    <td><img src={pictures} alt={name} style={{height: "100px"}}/></td>
-    <td>{name}</td>
-    <td>
-        <div className="button-group">
-            <button className="button__dec button" onClick={decrement}>-</button>
-            <button className="button__cnt button" disabled>{n}</button>
-            <button className="button__inc button" onClick={increment}>+</button>
-        </div>
-    </td>
-    <td>{price} ₽</td>
-    {sum === sumDiscount ? <td>{sum} ₽</td> 
-    : <td style={{color: "red"}}>
-    {sumDiscount} ₽ <del style={{color: "black"}}>{sum} ₽</del>
-    </td>}
-    <td><Trash3 onClick={delProduct} className="icon-cart"/></td>
+        <td><img src={pictures} alt={name} className="image-cart" /></td>
+        <td>{name}</td>
+        <td>
+            <div className="button-group">
+                <button className="button__dec" onClick={decrement}>-</button>
+                <button className="button__cnt" disabled>{n}</button>
+                <button className="button__inc" onClick={increment}>+</button>
+            </div>
+        </td>
+        <td className="price">{price} ₽</td>
+        {sum === sumDiscount ? <td>{sum} ₽</td>
+            : <td style={{ color: "red" }}>
+                {sumDiscount} ₽ <del style={{ color: "black" }}>{sum} ₽</del>
+            </td>}
+        <td><Trash3 onClick={delProduct} className="icon-cart" /></td>
     </tr>
 }
 

@@ -82,7 +82,7 @@ function App() {
         <Route path="/catalog" element={<Banner />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route path="/cart" element={<Cart/>} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
       <Modal />
