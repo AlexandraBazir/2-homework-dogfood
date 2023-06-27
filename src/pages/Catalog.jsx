@@ -15,8 +15,8 @@ const Catalog = () => {
         {searchResult && <p className="search-result">{searchResult}</p>}
         {user && <>
             <h1 style={{ margin: 0, justifySelf: "flex-start" }}>Каталог</h1>
-            <div className="container-card">{goods.map((pro, i) => (
-                <Card key={i}
+            <div className="container-card">{goods.map((pro) => (
+                <Card key={pro._id}
                     img={pro.pictures}
                     name={pro.name}
                     price={pro.price}

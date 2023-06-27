@@ -77,7 +77,8 @@
     justify-content: space-around;
  }
 
- .product-delete {
+ .product-delete,
+ .product-upd {
     cursor: pointer;
     align-self: center;
     font-size: 1.8rem;
@@ -254,7 +255,8 @@
  }
 
  .review-delete:hover,
- .product-delete:hover {
+ .product-delete:hover,
+ .product-upd:hover {
     color: orangered;
  }
 
@@ -366,6 +368,17 @@
     margin-left: 8px;
  }
 
+ div .modal-upd {
+    width: 80%;
+    height: 500px;
+    overflow: auto;
+ }
+
+ .modal-container_upd {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ }
+
  @media (max-width: 1200px) {
     .container-card {
        grid-template-columns: repeat(2, 1fr)
@@ -457,7 +470,8 @@
        font-size: 0.9rem;
     }
 
-    .product-delete {
+    .product-delete,
+    .product-upd {
        font-size: 1rem
     }
 

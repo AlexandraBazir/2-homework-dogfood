@@ -32,8 +32,8 @@ const Home = () => {
             {user &&
                 <div className="home-carousel">
                     <Carousel breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={1500}>
-                        {goods.map((pro, i) => (
-                            <Card key={i} img={pro.pictures} name={pro.name} price={pro.price} _id={pro._id} likes={pro.likes} token={token} userId={userId} discount={pro.discount} />))}
+                        {goods.map((pro) => (
+                            <Card key={pro._id} img={pro.pictures} name={pro.name} price={pro.price} _id={pro._id} likes={pro.likes} token={token} userId={userId} discount={pro.discount} />))}
                     </Carousel>
                 </div>
             }

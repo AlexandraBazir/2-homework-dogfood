@@ -1,0 +1,27 @@
+.container-upd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.span-button_pencil {
+    margin: 0 2px;
+}
+
+.button-pencil {
+    display: flex;
+    padding: 1px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.button-upd {
+    display: flex;
+    padding: 3px;
+    cursor: pointer;
+}
+
+textarea {
+   width: 700px;
+    height: 200px;
+}

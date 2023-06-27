@@ -2,8 +2,9 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Context from "../Context";
 import Carousel from 'react-elastic-carousel';
-import { Trash3 } from "react-bootstrap-icons";
+import { Trash3, PencilFill, XOctagon } from "react-bootstrap-icons";
 import ProductСounter from "../components/ProductСounter";
+import UpdProductInput from "../components/UpdProductInput";
 
 import "./style.css";
 
@@ -22,8 +23,12 @@ const Product = () => {
     const [revText, setRevText] = useState("");
     const [revRating, setRevRating] = useState(0);
     const [hideForm, setHideForm] = useState(true);
+    const [modalUpdProduct, setModalUpdProduct] = useState(false);
     const inCart = cart.filter(el => id === el.id).length > 0;
     const path = "https://api.react-learning.ru";
+    const st = {
+        display: modalUpdProduct ? "flex" : "none",
+    }
     const navigate = useNavigate();
     const goBack = () => {
         navigate(-1);
@@ -95,7 +100,7 @@ const Product = () => {
             .then(serverData => {
                 setData(serverData);
             })
-    }, [])
+    }, [id, token, data])
 
     useEffect(() => {
         fetch(`${path}/products/review/${id}`, {
@@ -111,7 +116,8 @@ const Product = () => {
     return <div className="product-page">
         <span><button onClick={goBack} className="button__goback">Назад</button></span>
         {data.name ? <div>
-            {data.author._id === userId ? <div className="product-name"><h1>{data.name}</h1><span className="product-delete"><Trash3 onClick={delProduct} /></span></div>
+            {data.author._id === userId ? <div className="product-name"><h1>{data.name}</h1><span className="product-delete"><Trash3 onClick={delProduct} /></span>
+                <span className="product-upd" style={{ cursor: "pointer" }} onClick={() => setModalUpdProduct(true)}><PencilFill /></span></div>
                 : <h1>{data.name}</h1>
             }
             <div className="product-card">
@@ -159,7 +165,7 @@ const Product = () => {
                 <h3>Отзывы</h3>
                 {rev.length ?
                     <Carousel breakPoints={breakPoints}>
-                        {rev.map((e, i) => <div className="review-card" key={i}>
+                        {rev.map((e) => <div className="review-card" key={e._id}>
                             <h3>{e.author.name}</h3>
                             <h4 style={{ color: "grey" }}>{new Date(e.created_at).toLocaleDateString()}</h4>
                             <p><b>Рейтинг:</b> {e.rating}</p>
@@ -201,6 +207,25 @@ const Product = () => {
                 Товара {id} не существует или он еще не загружен
             </div>
         }
+        <div className="modal-wrapper" style={st}>
+            <div className="modal modal-upd">
+                <button
+                    className="modal-close"
+                    onClick={() => setModalUpdProduct(false)}>
+                    <XOctagon />
+                </button>
+                <div className="modal-container_upd">
+                    {data.name && <UpdProductInput value={data.name} setProduct={setData} id={id} type="name" tagMain="h1" tagInp="input" />}
+                    {data.price >= 0 && <UpdProductInput value={data.price} setProduct={setData} id={id} type="price" tagMain="div" tagInp="input" />}
+                    {data.pictures && <UpdProductInput value={data.pictures} setProduct={setData} id={id} type="pictures" tagMain="img" tagInp="input" />}
+                    {data.discount >= 0 && <UpdProductInput value={data.discount} setProduct={setData} id={id} type="discount" tagMain="div" tagInp="select" />}
+                    {data.wight && <UpdProductInput value={data.wight} setProduct={setData} id={id} type="wight" tagMain="div" tagInp="input" />}
+                </div>
+                <div>
+                    {data.description && <UpdProductInput value={data.description} setProduct={setData} id={id} type="description" tagMain="p" tagInp="textarea" />}
+                </div>
+            </div>
+        </div>
     </div>
 }
 
